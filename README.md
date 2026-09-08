@@ -1,29 +1,29 @@
-# 🚀 3D Portfolio
+# 🚀 Jayson Baldovino — Portfolio
 
-A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Not your average portfolio template! This one has a fully interactive 3D keyboard where each keycap is a skill.
+The personal developer portfolio of **Jayson Baldovino**, a full-stack web developer and creative technologist. Built on top of the open-source [3D Portfolio](https://github.com/Naresh-Khatri/3d-portfolio) template by **Naresh Khatri** — featuring an interactive 3D keyboard where each keycap represents a skill, smooth scroll-driven animations, and a space-themed aesthetic.
 
-> **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+🔗 **Live site:** [jaysonbaldovino.vercel.app](https://jaysonbaldovino.vercel.app)
 
 ![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+
+> This project is built on the [3D Portfolio](https://github.com/Naresh-Khatri/3d-portfolio) template, created by [Naresh Khatri](https://github.com/Naresh-Khatri) and used here under the MIT License. All credit for the original 3D keyboard concept, animation system, and base architecture goes to the original author — see [Credits](#-credits) below.
 
 ## ✨ Features
 
 - **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill, revealing titles and descriptions on hover/press
 - **Buttery Animations** — GSAP + Framer Motion powered scroll, hover, and reveal animations
 - **Space Theme** — Floating particles on a dark canvas for a cosmic vibe
-- **Light & Dark Mode** — Full theme support with cheeky disclaimer toasts
+- **Light & Dark Mode** — Full theme support
 - **Responsive** — Works across all screen sizes
 - **Contact Form** — Email delivery via Resend
-- **Analytics** _(optional)_ — Umami analytics integration
+- **Real Projects** — NearZeroDowntime AI Audit System, MVAA school management platform, PeerFusion skill-share platform, and more
 
 ## 🛠️ Tech Stack
 
 | Layer | Technologies |
 |---|---|
 | **Framework** | Next.js 14, React 18, TypeScript |
-| **Styling** | Tailwind CSS, Shadcn UI, Aceternity UI |
+| **Styling** | Tailwind CSS, Shadcn UI |
 | **Animation** | GSAP, Framer Motion |
 | **3D** | Spline Runtime |
 | **Email** | Resend |
@@ -43,8 +43,8 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/Naresh-Khatri/3d-portfolio.git
-    cd 3d-portfolio
+    git clone https://github.com/jysnbldvn01/jayson_profile.git
+    cd jayson_profile
     ```
 
 2. **Install dependencies:**
@@ -74,115 +74,47 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
     pnpm dev
     ```
 
-5. Open [http://localhost:3000](http://localhost:3000) and see the magic ✨
+5. Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
 ---
 
-## 🎨 Make It Your Own
+## 📁 Project Structure
 
-All personal info is centralized in [`src/data/config.ts`](src/data/config.ts). Edit this single file to rebrand the portfolio:
+Personal info lives in [`src/data/config.ts`](src/data/config.ts) — name, bio, social links, and SEO metadata.
 
-```ts
-const config = {
-  title: "Your Name | Your Title",
-  description: {
-    long: "Your long description for SEO...",
-    short: "Your short description...",
-  },
-  keywords: ["your", "keywords"],
-  author: "Your Name",
-  email: "you@example.com",
-  site: "https://yoursite.com",
-
-  // GitHub stars button in the header
-  githubUsername: "your-github-username",
-  githubRepo: "your-repo-name",
-
-  social: {
-    twitter: "https://x.com/you",
-    linkedin: "https://linkedin.com/in/you",
-    instagram: "https://instagram.com/you",
-    facebook: "https://facebook.com/you",
-    github: "https://github.com/you",
-  },
-};
-```
-
-Other files you'll want to customize:
-
-| File | What to change |
+| File | What it controls |
 |---|---|
-| `src/data/projects.tsx` | Your projects, screenshots, descriptions, and tech stacks |
-| `src/data/constants.ts` | Skills list (name, description, icon) and work experience |
-| `public/assets/` | Your images, OG image, and project screenshots |
+| `src/data/config.ts` | Name, title, bio, keywords, social links |
+| `src/data/projects.tsx` | Project entries, screenshots, descriptions, and tech stacks |
+| `src/data/constants.ts` | Skills list and work experience |
+| `public/assets/` | Images, OG image, and project screenshots |
 
 ---
 
-## ⌨️ Updating the 3D Keyboard Skills
+## ⌨️ The 3D Keyboard
 
-The 3D keyboard keycaps are baked into a Spline file. To update the skills displayed on the keyboard:
-
-1. **Import** the `public/assets/skills-keyboard.spline` file into [Spline](https://spline.design/)
-2. **Unhide** the keycap objects you want to edit
-3. **Update** the logo images on each keycap to your new skill icons
-4. **Rename** each keycap object to match the skill's `name` field in `src/data/constants.ts` (e.g. `js`, `react`, `docker`)
-5. **Hide** all keycap objects again
-6. **Export** the scene and overwrite `public/assets/skills-keyboard.spline`
-
-After updating the Spline file, make sure `src/data/constants.ts` has matching entries for every skill on the keyboard:
-
-```ts
-// Each keycap object name in Spline must match a key in SKILLS
-export const SKILLS: Record<SkillNames, Skill> = {
-  js: { name: "js", label: "JavaScript", shortDescription: "...", ... },
-  react: { name: "react", label: "React", shortDescription: "...", ... },
-  // ... add/remove entries to match your keyboard
-};
-```
-
-The `SkillNames` enum, `SKILLS` record, and the Spline keycap names must all stay in sync for the keyboard interactions to work correctly.
+The skill keycaps are baked into a Spline scene (`public/assets/skills-keyboard.spline`). Each keycap's object name in Spline must match a key in `SKILLS` inside `src/data/constants.ts` for hover/press interactions to work correctly.
 
 ---
 
 ## 🔌 Realtime Features (Optional)
 
-The portfolio supports optional realtime features powered by a **separate backend API**:
-
-- 🖱️ **Live cursors** — See other visitors' cursors in realtime
-- 👥 **Online presence** — Shows who's currently on the site
-- 💬 **Chat** — Live chat between visitors
-
-These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment variable is set. Without it, the portfolio works perfectly fine as a static site — no realtime features, no backend dependency.
-
-> [!NOTE]
-> The backend API is **not open source**. This is intentional! Too many people have cloned the portfolio and claimed they built it from scratch. The realtime server stays private to keep the live experience unique make make it standout.
-
+Supports optional realtime features (live cursors, presence, chat) powered by a separate backend. These activate automatically when `NEXT_PUBLIC_WS_URL` is set; without it, the site runs perfectly fine as a static build.
 
 ---
 
 ## 🚀 Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
-
-This site is deployed on **Vercel**. To deploy your own:
-
-1. Push your code to a GitHub repository
-2. Connect the repository to [Vercel](https://vercel.com)
-3. Add your environment variables in the Vercel dashboard
-4. Vercel handles the rest — automatic deployments on every push
+Deployed on **Vercel**. Every push to `main` triggers an automatic deployment.
 
 ---
 
-## 🤝 Contributing
+## 🙏 Credits
 
-If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
+This portfolio is built on top of the [**3D Portfolio**](https://github.com/Naresh-Khatri/3d-portfolio) open-source template by **[Naresh Khatri](https://github.com/Naresh-Khatri)**, licensed under MIT. The 3D keyboard concept, base animation system, and original architecture are his work — all project content, branding, and personal data in this repository are my own.
 
----
+If you're looking for the original template to build your own portfolio, check it out here: **https://github.com/Naresh-Khatri/3d-portfolio**
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-If you use this portfolio, a credit or link back to the [original repo](https://github.com/Naresh-Khatri/3d-portfolio) would be much appreciated ❤️
-
-Note on analytics: a deployed copy reports its own hostname once per browser (nothing else — no visitor, page, or referrer data) so I can see where the template gets used.
+This project is based on an MIT-licensed template. See [LICENSE](LICENSE) for details.
