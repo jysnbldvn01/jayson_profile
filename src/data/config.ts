@@ -40,7 +40,7 @@ const config = {
 
   // for github stars button
   githubUsername: "jysnbldvn01",
-  githubRepo: "portfolio",
+  githubRepo: "jayson_profile",
 
   // Add this for smaller name display
   nameDisplay: {
