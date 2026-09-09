@@ -176,7 +176,7 @@ const projects: Project[] = [
     src: `${BASE_PATH}/mvaa/landing.png`,
     screenshots: [
       "landing.png",
-      "enrollmentreg.png",
+      "enrollementreg.png",
       "dashboard.png",
       "calendar.png",
       "schedulevisit.png",
