@@ -218,7 +218,7 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/mvaa/enrollmentreg.png`,
+              `${BASE_PATH}/mvaa/enrollementreg.png`,
               `${BASE_PATH}/mvaa/dashboard.png`,
             ]}
           />
